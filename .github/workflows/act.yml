@@ -1,0 +1,34 @@
+name: Python application
+
+on:
+  schedule:
+    - cron: '46 10 * * *'
+  workflow_dispatch:      
+
+jobs:
+  run-loop:
+    runs-on: windows-latest  # Runs on a Windows Cloud OS
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    # Clean, optimized loop for Windows
+    - name: Run Package Install/Uninstall Loop
+      shell: powershell
+      run: |
+        for ($i = 1; $i -le 80000; $i++) {
+            Write-Host "Iteration $i of 80000"
+            
+            # 1. Install the main package (this pulls in both npmai-agents and npmai)
+            pip install --no-cache-dir npmai-agents 
+            
+            # 2. Uninstall both packages simultaneously in one clean command
+            pip uninstall -y npmai-agents npmai
+            
+            Write-Host "-------------------------------------"
+        }
