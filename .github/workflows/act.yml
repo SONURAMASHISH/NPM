@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-loop:
-    runs-on: macos-latest  # Runs on a Windows Cloud OS
+    runs-on: ubuntu-latest  # Runs on a Windows Cloud OS
 
     steps:
     - uses: actions/checkout@v4
