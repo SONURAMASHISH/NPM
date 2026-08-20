@@ -25,10 +25,10 @@ jobs:
             Write-Host "Iteration $i of 160000"
             
             # 1. Install the main package (this pulls in both npmai-agents and npmai)
-            pip install --no-cache-dir npmai-agents 
+            pip install --no-cache-dir npmai-agents==1.0.2 
             
             # 2. Uninstall both packages simultaneously in one clean command
-            pip uninstall -y npmai-agents npmai
+            pip uninstall -y npmai-agents==1.0.2 npmai==0.1.9
             
             Write-Host "-------------------------------------"
         }
