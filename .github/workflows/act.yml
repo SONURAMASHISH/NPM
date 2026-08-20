@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-loop:
-    runs-on: windows-latest  # Runs on a Windows Cloud OS
+    runs-on: macos-latest  # Runs on a Windows Cloud OS
 
     steps:
     - uses: actions/checkout@v4
@@ -21,8 +21,8 @@ jobs:
     - name: Run Package Install/Uninstall Loop
       shell: powershell
       run: |
-        for ($i = 1; $i -le 80000; $i++) {
-            Write-Host "Iteration $i of 80000"
+        for ($i = 1; $i -le 160000; $i++) {
+            Write-Host "Iteration $i of 160000"
             
             # 1. Install the main package (this pulls in both npmai-agents and npmai)
             pip install --no-cache-dir npmai-agents 
